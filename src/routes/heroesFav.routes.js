@@ -30,9 +30,9 @@ router.post('/add', upload.single('file') , async (req, res) => {
             const imagen = file.filename
             newheroeFav = { name, powes, weakness, age, imagen}
         }else{
-            newheroeFav = { name, powes, weakness, age, imagen}
+            newheroeFav = { name, powes, weakness, age}
         }
-        await pool.query('INSERT INTO  SET heroeFav?', [newheroeFav]);
+        await pool.query('INSERT INTO heroesFav SET ?', [newheroeFav]);
         res.redirect('/list');
     } catch (error) {
         res.status(500).json({ message: error.message });
@@ -42,7 +42,7 @@ router.post('/add', upload.single('file') , async (req, res) => {
 router.get('/list', async (req, res) => {
     try {
         const [result] = await pool.query('SELECT * FROM heroesFav');
-        res.render('heroesFav/list', { heroeFav: result })
+        res.render('heroesFav/list', { heroesFav: result })
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
@@ -51,7 +51,7 @@ router.get('/list', async (req, res) => {
 router.get('/delete/:id', async (req, res) => {
     try {
         const { id } = req.params
-        await pool.query('DELETE FROM heroeFav WHERE id = ?', [id]);
+        await pool.query('DELETE FROM heroesFav WHERE id = ?', [id]);
         res.redirect('/list');
     } catch (error) {
         res.status(500).json({ message: error.message });
@@ -73,7 +73,7 @@ router.get('/edit/:id', async (req, res) => {
 router.post('/edit/:id',  upload.single('file'), async (req, res) => {
     try {
         const { id } = req.params
-        const { name, powes, weakness, age, imagen} = req.body
+        const { name, powes, weakness, age,} = req.body
         let heroeFavEdit = {}
         if(req.file){
             const file = req.file
