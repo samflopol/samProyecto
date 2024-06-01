@@ -1,0 +1,20 @@
+.bak{
+    margin: 0px !important;
+    background-image: url(https://img.freepik.com/fotos-premium/fondo-vectores-luz-abstractos_839035-675419.jpg);
+    height: -webkit-fill-available;
+    width: -webkit-fill-available;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin: 0px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.container{
+    height: 100vh;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+/* div{background-image:url(https://i.pinimg.com/736x/aa/4e/74/aa4e74a6d8b358bc15861de791c2d0ee.jpg);} */

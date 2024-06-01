@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row mt-5">
-        <h3 class="text-center text-uppercase p-2"> lista de personas</h3>
+        <h3 class="text-center text-uppercase p-2"> lista de super heroes</h3>
 
 
         {{#if personas}}
@@ -9,9 +9,9 @@
                 <thead>
                     <tr class="table-dark">
                         <th scope="col" class="col-4">nombre     </th>
-                        <th scope="col">apellido   </th>
-                        <th scope="col">edad       </th>
-                        <th scope="col">observacion     </th>
+                        <th scope="col">poder </th>
+                        <th scope="col">debilidad</th>
+                        <th scope="col">edad</th>
                         <th scope="col"> Imagen  </th>
                         <th scope="col">acciones   </th>
                     </tr>
@@ -19,9 +19,9 @@
                     {{#each personas}}
                         <tr>
                             <td>{{name}}</td>
-                            <td>{{lastname}}</td>
+                            <td>{{Powers}}</td>
+                            <td>{{weakness}}</td>
                             <td>{{age}}</td>
-                            <td>{{observacion}}</td>
                             <td>
                                 <img src="/uploads/{{imagen}}" class="card-img-top mx-auto m-2 rounded-circle" style="width: 150px; height: 150px;display:block;">
                             </td>
@@ -48,11 +48,11 @@
 
             <div class="card text-center mx-auto">
                 <div class="card-header">
-                    <h3> Debes crear una persona</h3>
+                    <h3> Debes añadir a un super heroe</h3>
                 </div>
                 <div class="card-body">
-                    <p>Presiona este boton para que puedas registrar a una persona en la aplicacion</p>
-                    <a href="/add" class="btn btn-primary"> Ir a crear</a>
+                    <p>Presiona este boton para que puedas registrar a un super heroeen la aplicacion</p>
+                    <a href="/add" class="btn btn-primary"> Ir a añadir</a>
                 </div>
             </div>
 

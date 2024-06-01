@@ -4,18 +4,23 @@
         <div class="col-md-4 mx-auto">
             <div class="card text-center">
                 <div class="card-header">
-                    <h3 class="text-uppercase">crear nueva persona</h3>
+                    <h3 class="text-uppercase">añadir nuevo super heroe</h3>
                 </div>
                 <div class="card-body">
                     <form action="/add" method="post" enctype="multipart/form-data">
                         <div class="input-group mt-2">
-                            <label for="name" class="input-group-text">nombre persona</label>
-                            <input class="form--control" type="text" name="name" id="name" placeholder="Ej:samuel o"autofocus required>
+                            <label for="name" class="input-group-text">nombre super heroe</label>
+                            <input class="form--control" type="text" name="name" id="name" placeholder="Ej:super man"autofocus required>
                         </div>
 
                         <div class="input-group mt-2">
-                            <label for="name" class="input-group-text">apellido</label>
-                            <input class="form--control" type="text" name="lastname" id="lastname" placeholder="Ej: florez polo"autofocus required>
+                            <label for="name" class="input-group-text">poder o habilidad</label>
+                            <input class="form--control" type="text" name="powers" id="powers" placeholder="Ej: super fuerza,estrategico"autofocus required>
+                        </div>
+
+                        <div class="input-group mt-2">
+                            <label for="name" class="input-group-text">debilidad</label>
+                            <input class="form--control" type="text" name="weakness" id="weakness" placeholder="Ej: kryptonita verde"autofocus required>
                         </div>
 
                         <div class="input-group mt-2">
@@ -24,15 +29,11 @@
                         </div>
 
                         <div class="input-group mt-2">
-                            <label for="observacion" class="input-group-text"> observacion </label>
-                            <input class="form-control" type="text" name="observacion" id="observacion" placeholder="Ejemplo: es una buena persona" autofocus required >
-                        </div>
-                        <div class="input-group mt-2">
                             <input class="form-control" type="file" name="file" id="file">
                         </div>
 
                         <div class="form-group mt-4 d-grid gap-2">
-                            <button class="btn btn-success"> Crear </button>
+                            <button class="btn btn-success">añadir</button>
                         </div>
 
                     </form>
