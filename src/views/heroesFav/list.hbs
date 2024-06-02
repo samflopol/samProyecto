@@ -3,7 +3,7 @@
         <h3 class="text-center text-uppercase p-2"> lista de super heroes</h3>
 
 
-        {{#if personas}}
+        {{#if heroesfav}}
 
             <table class="table text-center">
                 <thead>
@@ -16,7 +16,7 @@
                         <th scope="col">acciones   </th>
                     </tr>
                 </thead>
-                    {{#each personas}}
+                    {{#each heroesfav}}
                         <tr>
                             <td>{{name}}</td>
                             <td>{{Powers}}</td>

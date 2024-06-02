@@ -59,6 +59,10 @@ app.get('/somos', (req, res) => {
     res.render('heroesFav/somos');
 });
 
+app.get('/sub', (req, res) => {
+    res.render('subcripcion/sub');
+});
+
 app.post('/add', (req, res) => {
     res.render('heroesFav/list');
 });
