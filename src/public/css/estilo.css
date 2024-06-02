@@ -18,19 +18,14 @@
     align-items: center;
 }
 
-.section {
+/*.section {
     background-color: #ffffff;
     padding: 20px;
     margin: 10px;
     border-radius: 5px;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
     flex-grow: 1;
-}
+}*/
 
-footer {
-    text-align: center;
-    padding: 20px 0;
-    background-color: #333333;
-    color: #ffffff;
-}
+
 /* div{background-image:url(https://i.pinimg.com/736x/aa/4e/74/aa4e74a6d8b358bc15861de791c2d0ee.jpg);} */

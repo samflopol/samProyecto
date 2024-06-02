@@ -55,6 +55,14 @@ app.get('/add', (req, res) => {
     res.render('heroesFav/add');
 });
 
+app.get('/somos', (req, res) => {
+    res.render('heroesFav/somos');
+});
+
+app.post('/add', (req, res) => {
+    res.render('heroesFav/list');
+});
+
 
 
 app.use('/heroesFav', heroesFavRoutes);

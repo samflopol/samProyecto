@@ -16,21 +16,20 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
-
-
 router.post('/add', upload.single('file'), async (req, res) => {
     try {
         const { name, powers, weakness, age } = req.body;
-        const newHeroeFav = {
-            name,
-            powers,
-            weakness,
-            age,
-            imagen: req.file ? req.file.filename : null
-        };
-
+        let newHeroeFav = {};
+        if (req.file) {
+            const file = req.file;
+            const imagen_original = file.originalname;
+            const imagen = file.filename;
+            newHeroeFav = { name, powers, weakness, age, imagen };
+        } else {
+            newHeroeFav = { name, powers, weakness, age };
+        }
         await pool.query('INSERT INTO heroesFav SET ?', [newHeroeFav]);
-        res.redirect('/heroesFav/list');
+        res.redirect('/list');
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
@@ -49,7 +48,7 @@ router.get('/delete/:id', async (req, res) => {
     try {
         const { id } = req.params;
         await pool.query('DELETE FROM heroesFav WHERE id = ?', [id]);
-        res.redirect('/heroesFav/list');
+        res.redirect('/list');
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
@@ -69,21 +68,18 @@ router.get('/edit/:id', async (req, res) => {
 router.post('/edit/:id', upload.single('file'), async (req, res) => {
     try {
         const { id } = req.params;
-        const { name, powers, weakness, age, imagen } = req.body;
+        const { name, powers, weakness, age } = req.body;
         let heroeFavEdit = {};
         if (req.file) {
-            heroeFavEdit = {
-                name,
-                powers,
-                weakness,
-                age,
-                imagen: req.file.filename
-            };
+            const file = req.file;
+            const imagen_original = file.originalname;
+            const imagen = file.filename;
+            heroeFavEdit = { name, powers, weakness, age, imagen };
         } else {
             heroeFavEdit = { name, powers, weakness, age };
         }
         await pool.query('UPDATE heroesFav SET ? WHERE id = ?', [heroeFavEdit, id]);
-        res.redirect('/heroesFav/list');
+        res.redirect('/list');
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
