@@ -43,13 +43,7 @@ res.render('index')
 });
 
 
-app.get('/list', (req, res) => {
-    res.render('heroesFav/list');
-});
 
-app.get('/edit', (req, res) => {
-    res.render('heroesFav/edit');
-});
 
 app.get('/add', (req, res) => {
     res.render('heroesFav/add');
@@ -63,13 +57,11 @@ app.get('/sub', (req, res) => {
     res.render('subcripcion/sub');
 });
 
-app.post('/add', (req, res) => {
-    res.render('heroesFav/list');
-});
 
 
 
-app.use('/heroesFav', heroesFavRoutes);
+
+app.use(heroesFavRoutes)
 
 
 /* ------------------------------ public files ------------------------------ */

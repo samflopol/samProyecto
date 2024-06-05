@@ -18,6 +18,7 @@ const upload = multer({ storage });
 
 router.post('/add', upload.single('file'), async (req, res) => {
     try {
+
         const { name, powers, weakness, age } = req.body;
         let newHeroeFav = {};
         if (req.file) {
@@ -37,8 +38,9 @@ router.post('/add', upload.single('file'), async (req, res) => {
 
 router.get('/list', async (req, res) => {
     try {
-        const [result] = await pool.query('SELECT * FROM heroesFav');
-        res.render('heroesFav/list', { heroesFav: result });
+        const [result] = await pool.query('SELECT * FROM heroesfav');
+        console.log(result)
+        res.render('heroesFav/list', { heroesfav: result });
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
